@@ -1,0 +1,48 @@
+# Environment files (NUNCA subir claves)
+.env
+.env.local
+.env.*.local
+
+# Virtual environments (no subir entornos virtuales)
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache and build files
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.so
+.python-version
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+*.egg
+.installed.cfg
+MANIFEST
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# Logs
+*.log
+logs/
+
+# System files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Archivos de desarrollo/local (opcionales)
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/

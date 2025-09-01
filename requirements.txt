@@ -1,0 +1,8 @@
+deepgram-sdk
+fastapi
+openai
+pydantic
+pydantic-settings
+python-dotenv
+requests
+uvicorn
