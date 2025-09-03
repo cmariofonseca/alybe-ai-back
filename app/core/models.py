@@ -8,7 +8,7 @@ class HealthResponse(BaseModel):
   supabase_configured: bool
 
 class AudioResponse(BaseModel):
-  texto: str
+  text: str
   status: str
 
 class TextToSpeechRequest(BaseModel):
