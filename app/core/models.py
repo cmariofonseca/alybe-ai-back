@@ -19,3 +19,7 @@ class HealthResponse(BaseModel):
   deepgram_configured: bool
   elevenlabs_configured: bool
   supabase_configured: bool
+
+class AudioResponse(BaseModel):
+  texto: str
+  status: str
