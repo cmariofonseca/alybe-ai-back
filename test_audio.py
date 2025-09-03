@@ -2,7 +2,7 @@ import aiofiles
 import asyncio
 import httpx
 
-API_URL = "http://localhost:8000/api/process-audio"
+API_URL = "http://localhost:8000/api/audio/process"
 AUDIO_PATH = "audio_test.wav"
 
 async def test_transcription():
