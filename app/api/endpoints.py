@@ -1,5 +1,5 @@
 from app.config.settings import settings
-from app.core.models import AudioResponse, HealthResponse, OrderRequest, TextToSpeechRequest
+from app.core.models import AudioResponse, HealthResponse, OrderRequest, TextToSpeechRequest, UserMessageRequest
 from app.utils.supabase_client import supabase_client
 from app.utils.deepgram_client import deepgram_client
 from app.utils.elevenlabs_client import elevenlabs_client
@@ -78,3 +78,32 @@ def save_order(order: OrderRequest):
     except Exception as e:
         logger.error(f"Error saving order: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/save-user-message")
+def save_user_message(request: UserMessageRequest):
+    """Save user message to database"""
+    try:
+        # Guardar en Supabase
+        response = supabase_client.client.table('user_messages').insert({
+            "user_message": request.message
+        }).execute()
+        
+        return {"status": "success", "message_id": response.data[0]['id'] if response.data else None}
+        
+    except Exception as e:
+        logger.error(f"Error saving user message: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/welcome-message")
+def get_welcome_message():
+    """Get AI welcome message"""
+    welcome_text = """
+    ¡Bienvenido a nuestro restaurante!
+    Es un placer tenerle aquí. 
+    ¿Le gustaría que le recomiende algún plato especial del día 
+    o prefiere conocer nuestra carta completa?
+    """
+    
+    return {"message": welcome_text}
