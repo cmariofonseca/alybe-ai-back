@@ -1,5 +1,6 @@
 from app.config.settings import settings
-from app.core.models import AudioResponse, HealthResponse, TextToSpeechRequest
+from app.core.models import AudioResponse, HealthResponse, OrderRequest, TextToSpeechRequest
+from app.utils.supabase_client import supabase_client
 from app.utils.deepgram_client import deepgram_client
 from app.utils.elevenlabs_client import elevenlabs_client
 from fastapi import APIRouter, File, HTTPException, Response, UploadFile
@@ -64,4 +65,16 @@ async def text_to_speech(request: TextToSpeechRequest):
         return Response(content=audio, media_type="audio/mpeg")
         
     except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/save-order")
+def save_order(order: OrderRequest):
+    """Save order to Supabase database"""
+    try:
+        result = supabase_client.save_order(order.dict())
+        return {"status": "success", "order_id": result.get('id')}
+        
+    except Exception as e:
+        logger.error(f"Error saving order: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
