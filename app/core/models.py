@@ -13,3 +13,20 @@ class AudioResponse(BaseModel):
 
 class TextToSpeechRequest(BaseModel):
   text: str
+
+
+class OrderItem(BaseModel):
+    name: str
+    quantity: int
+    price: float
+
+class OrderCreate(BaseModel):
+    table_id: str
+    items: List[OrderItem]
+    total: float
+
+class OrderRequest(BaseModel):
+    table_id: str
+    items: List[OrderItem]
+    total: float
+    status: str = "pending"
