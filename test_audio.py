@@ -2,10 +2,10 @@ import aiofiles
 import asyncio
 import httpx
 
-API_URL = "http://localhost:8000/api/procesar-audio"
-AUDIO_PATH = "test_audio.wav"
+API_URL = "http://localhost:8000/api/process-audio"
+AUDIO_PATH = "audio_test.wav"
 
-async def probar_transcripcion():
+async def test_transcription():
     async with aiofiles.open(AUDIO_PATH, "rb") as f:
         audio_bytes = await f.read()
 
@@ -18,4 +18,4 @@ async def probar_transcripcion():
         response.raise_for_status()
 
 if __name__ == "__main__":
-    asyncio.run(probar_transcripcion())
+    asyncio.run(test_transcription())
