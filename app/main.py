@@ -22,7 +22,7 @@ app.include_router(api_router, prefix="/api")
 
 @app.get("/")
 async def root():
-  return {"message": "Alybe AI Backend funcionando", "environment": settings.APP_ENV}
+  return {"message": "Alybe AI Backend funcionando", "environment": "development"}
 
 @app.get("/health")
 async def health_check():

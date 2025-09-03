@@ -1,8 +1,11 @@
-deepgram-sdk
+aiofiles
+deepgram-sdk==2.12.0
+elevenlabs==2.13.0
 fastapi
 openai
 pydantic
 pydantic-settings
 python-dotenv
+python-multipart
 requests
 uvicorn
