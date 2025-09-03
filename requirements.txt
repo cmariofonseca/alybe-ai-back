@@ -1,5 +1,6 @@
 aiofiles
 deepgram-sdk==2.12.0
+deepseek
 elevenlabs==2.13.0
 fastapi
 openai

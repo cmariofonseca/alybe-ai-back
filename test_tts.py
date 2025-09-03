@@ -5,7 +5,7 @@ import requests
 async def test_speech_synthesis():
     url = "http://localhost:8000/api/text-to-speech"
 
-    payload = {"text": "Hola, esto es una prueba de síntesis de voz"}
+    payload = {"texto": "Hola, esto es una prueba de síntesis de voz"}
     
     response = requests.post(url, json=payload)
     
