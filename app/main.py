@@ -1,7 +1,6 @@
+from app.api.endpoints import router as api_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.endpoints import router as api_router
-from app.config.settings import settings
 
 app = FastAPI(
   title="Alybe AI Backend",
@@ -17,7 +16,6 @@ app.add_middleware(
   allow_headers=["*"],
 )
 
-# Incluir routers
 app.include_router(api_router, prefix="/api")
 
 @app.get("/")
