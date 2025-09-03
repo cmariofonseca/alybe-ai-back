@@ -30,3 +30,7 @@ class OrderRequest(BaseModel):
     items: List[OrderItem]
     total: float
     status: str = "pending"
+
+
+class UserMessageRequest(BaseModel):
+    message: str
